@@ -11,6 +11,7 @@ public class CanadaCensusController extends HttpServlet {
     //setting constants for forwarding the request/response
     final String Census_LOGIN = "/login.jsp";
     final String Census_HOME = "/home.jsp";
+    final String Census_INDIVIDUALGEOGRPHICAREADETAIL = "/IndividualGeographicAreaDetailsPage.jsp";
 
 
 
