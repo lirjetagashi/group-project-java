@@ -13,7 +13,7 @@ public class DBUtil {
 
     mysqlDataSource.setUrl("jdbc:mysql://localhost:3306/CanadaCensusDB");
     mysqlDataSource.setUser("root");
-    mysqlDataSource.setPassword("denlir9899");
+    mysqlDataSource.setPassword("Sara3142");
 
     Class.forName("com.mysql.cj.jdbc.Driver");
 
