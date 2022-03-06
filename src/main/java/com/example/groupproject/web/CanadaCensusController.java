@@ -1,12 +1,14 @@
 package com.example.groupproject.web;
 
 import com.example.groupproject.bean.GeographicArea;
+import com.example.groupproject.handler.GeographicAreaClassficationListHandler;
 import com.example.groupproject.handler.GeographicAreaHandler;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.List;
 
 import static com.example.groupproject.handler.GeographicAreaHandler.geoAreaDetail;
 import static com.example.groupproject.handler.GeographicAreaHandler.totalPopulation;
@@ -15,17 +17,20 @@ import static com.example.groupproject.handler.GeographicAreaHandler.totalPopula
 public class CanadaCensusController extends HttpServlet {
 
     private GeographicAreaHandler geographicAreaHandler;
+    private GeographicAreaClassficationListHandler geographicAreaClassficationListHandler;
     boolean result = false;
 
     //setting constants for forwarding the request/response
     final String Census_LOGIN = "/login.jsp";
     final String Census_HOME = "/home.jsp";
+    final String Census_GEOGRAPHICAREACLASSIFICATIONLIST = "/GeographicAreaClassificationList.jsp";
     final String Census_INDIVIDUALGEOGRPHICAREADETAIL = "/IndividualGeographicAreaDetailsPage.jsp";
 
     public CanadaCensusController() throws ClassNotFoundException {
         super();
         //creating an instance of GeographicAreaHandler
         geographicAreaHandler = new GeographicAreaHandler();
+        geographicAreaClassficationListHandler = new GeographicAreaClassficationListHandler();
     }
 
     @Override
@@ -71,6 +76,17 @@ public class CanadaCensusController extends HttpServlet {
             }
         }
 
+        //if the request is from geograpicAreaClassificationList then fetch the detail for geographic area and pass it to jsp page
+        if (geographicAreaClassficationListHandler != null) {
+            if (pageName.equals("GeographicAreaClassificationList")) {
+                List<GeographicArea> geographicAreaList = geographicAreaClassficationListHandler.findGeographicAreaByLevel(
+                                                          Integer.parseInt(request.getParameter("level")));
+
+                request.setAttribute("geoAreaObjList", geographicAreaList);
+
+                forward = Census_GEOGRAPHICAREACLASSIFICATIONLIST;
+            }
+        }
         RequestDispatcher view = request.getRequestDispatcher(forward);
         view.forward(request, response);
     }
