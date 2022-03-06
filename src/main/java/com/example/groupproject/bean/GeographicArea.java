@@ -1,15 +1,14 @@
 package com.example.groupproject.bean;
 
-import java.util.Date;
-
 public class GeographicArea {
 
+    //defining GeographicArea attributes
     private int code;
     private int level;
     private String name;
     private int alternativeCode;
 
-    //getter and setters for Employee attributes
+    //getter and setters for GeographicArea attributes
     public int getCode() {
         return code;
     }

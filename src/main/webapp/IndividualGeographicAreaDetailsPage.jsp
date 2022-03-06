@@ -12,7 +12,7 @@
 </head>
 <body>
 <div >
-    <h1>GeographicArea Form</h1>
+    <h1>Geographic Area Detail</h1>
     <form action="<%=request.getContextPath()%>/CanadaCensusController" method="post">
         <input type="hidden" name="pageName" value="geographicAreaDetail">
         <table style="with: 100%">
@@ -22,8 +22,28 @@
             </tr>
             <p><i>${message}</i></p>
         </table>
-        <input type="submit" value="sign in" />
+        <input type="submit" value="Search" />
     </form>
+</div>
+<div>
+    <table style="with: 100%">
+        <tr>
+            <td>Name:</td>
+            <td>${geoAreaObj.name}</td>
+        </tr>
+        <tr>
+            <td>Code:</td>
+            <td>${geoAreaObj.code}</td>
+        </tr>
+        <tr>
+            <td>Level:</td>
+            <td>${geoAreaObj.level}</td>
+        </tr>
+        <tr>
+            <td>Total Population:</td>
+            <td>${totalPopulation}</td>
+        </tr>
+    </table>
 </div>
 </body>
 </html>
