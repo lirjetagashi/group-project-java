@@ -9,24 +9,28 @@
 <html>
 <head>
     <title>Login Form</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <div >
-    <h1>Login Form</h1>
     <form action="<%=request.getContextPath()%>/CanadaCensusController" method="post">
-        <input type="hidden" name="pageName" value="login">
-        <table style="with: 100%">
-            <tr>
-                <td>UserName</td>
-                <td><input type="text" name="userName" /></td>
-            </tr>
-            <tr>
-                <td>Password</td>
-                <td><input type="password" name="password" /></td>
-            </tr>
+        <div class="container">
+            <h1>Sign In</h1>
+            <p>Please fill in the form to sign in to CanadaCensusDB.</p>
+            <hr>
+            <input type="hidden" name="pageName" value="login">
+
+            <label for="username"><b>Username:</b></label>
+            <input type="text" placeholder="Enter Username" name="userName" id="username"/>
+
+            <label for="password"><b>Password:</b></label>
+            <input type="password" placeholder="Enter Password" name="password" id="password"/>
+
             <p><i>${message}</i></p>
-        </table>
-        <input type="submit" value="sign in" />
+            <hr>
+
+            <input type="submit" name="submit" value="Submit" class="btn">
+        </div>
     </form>
 </div>
 </body>

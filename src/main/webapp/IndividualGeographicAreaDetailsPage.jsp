@@ -9,41 +9,33 @@
 <html>
 <head>
     <title>Geographic Area Detail</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div >
+<div class="container">
     <h1>Geographic Area Detail</h1>
     <form action="<%=request.getContextPath()%>/CanadaCensusController" method="post">
-        <input type="hidden" name="pageName" value="geographicAreaDetail">
-        <table style="with: 100%">
-            <tr>
-                <td>Geographic Area ID</td>
-                <td><input type="text" name="geographicAreaID" /></td>
-            </tr>
-            <p><i>${message}</i></p>
-        </table>
-        <input type="submit" value="Search" />
+            <input type="hidden" name="pageName" value="geographicAreaDetail">
+            <label for="geographicAreaID"><b>Geographic Area ID:</b></label>
+            <input type="text" placeholder="Enter ID" name="geographicAreaID" id="geographicAreaID"/>
+                <p><i>${message}</i></p>
+            <input type="submit" name="search" value="Search" class="btn">
     </form>
-</div>
-<div>
-    <table style="with: 100%">
+    <table id="table">
         <tr>
-            <td>Name:</td>
+            <th>Name</th>
+            <th>Code</th>
+            <th>Level</th>
+            <th>Total Population</th>
+        </tr>
+        <tr>
             <td>${geoAreaObj.name}</td>
-        </tr>
-        <tr>
-            <td>Code:</td>
             <td>${geoAreaObj.code}</td>
-        </tr>
-        <tr>
-            <td>Level:</td>
             <td>${geoAreaObj.level}</td>
-        </tr>
-        <tr>
-            <td>Total Population:</td>
             <td>${totalPopulation}</td>
         </tr>
     </table>
+    <h4>Go back to menu: <a href="home.jsp">Main menu</a></h4>
 </div>
 </body>
 </html>

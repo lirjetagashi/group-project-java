@@ -9,16 +9,18 @@
 <html>
 <head>
     <title>home page</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<h1><%= "Select one of the links" %>
-</h1>
-<br/>
-<a href="GeographicAreaClassificationList.jsp">Geographic Area Classification List</a>
-<br>
-<a href="IndividualGeographicAreaDetailsPage.jsp">Individual Geographic Area Details</a>
-<br>
-<a href="AgeList.jsp">Age List</a>
-<br>
+<div class="container">
+    <h1><%= "Select one of the links" %></h1>
+    <hr>
+    <a href="GeographicAreaClassificationList.jsp">Geographic Area Classification List</a>
+    <hr>
+    <a href="IndividualGeographicAreaDetailsPage.jsp">Individual Geographic Area Details</a>
+    <hr>
+    <a href="AgeList.jsp">Age List</a>
+    <hr>
+</div>
 </body>
 </html>
