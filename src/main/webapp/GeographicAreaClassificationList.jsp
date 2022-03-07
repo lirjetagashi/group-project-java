@@ -10,31 +10,32 @@
 <html>
 <head>
     <title>Geographic Area Classification List</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
-<h1>Geographic Area Classification List</h1>
-<h4>Geographic Area Level</h4>
-<form action="<%=request.getContextPath()%>/CanadaCensusController" method="post">
-    <input type="hidden" name="pageName" value="GeographicAreaClassificationList">
-    <button name="level" value="0">The country of Canada</button>
-    <button name="level" value="1">Provinces and Territories</button>
-    <button name="level" value="2">Census metropolitan areas (CMA) and census agglomerations (CA)</button>
-    <button name="level" value="3">One CMA and three CAs</button>
-</form>
 <body>
-    <table>
-        <thead>
+<div class="container">
+    <h1>Geographic Area Classification List</h1>
+    <h4>Geographic Area Level</h4>
+    <form action="<%=request.getContextPath()%>/CanadaCensusController" method="post">
+        <input type="hidden" name="pageName" value="GeographicAreaClassificationList">
+        <button name="level" value="0">The country of Canada</button>
+        <button name="level" value="1">Provinces and Territories</button>
+        <button name="level" value="2">Census metropolitan areas (CMA) and census agglomerations (CA)</button>
+        <button name="level" value="3">One CMA and three CAs</button>
+    </form>
+    <table id="table">
+        <tr>
             <th>Name</th>
-        </thead>
-        <tbody>
+        </tr>
         <c:forEach items="${geoAreaObjList}" var="geoAreaObj">
-            <tr>
-                <td>
+        <tr>
+            <td>
                     ${geoAreaObj.name}
-                </td>
-            </tr>
+            </td>
+        </tr>
         </c:forEach>
-        </tbody>
     </table>
+    <h4>Go back to menu: <a href="home.jsp">Main menu</a></h4>
+</div>
 </body>
 </html>
